@@ -1,0 +1,89 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ColorPicker.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="500"
+        x:Class="ColorPicker.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Color Picker"
+        Width="300" Height="500"
+        MinWidth="300" MinHeight="500">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Window.Styles>
+        <Style Selector="Slider">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Minimum" Value="0" />
+            <Setter Property="Maximum" Value="255" />
+            <Setter Property="Margin" Value="0, 0, 10, 0" />
+            <Setter Property="BorderBrush" Value="Orange"/>
+            <Setter Property="BorderThickness" Value="4"/>
+        </Style>
+
+        <Style Selector="TextBox">
+            <Setter Property="Margin" Value="10, 0, 0, 0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Styles>
+
+    <Grid RowDefinitions="*, 45, Auto, Auto">
+        <Rectangle Grid.Row="0"
+                   Fill="{Binding Hex}" />
+
+        <Label Grid.Row="1"
+               Content="{Binding Hex}"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="20"/>
+
+        <Grid Grid.Row="2" 
+              RowDefinitions="*, *, *"
+              ColumnDefinitions="*, Auto"
+              Margin="20, 0">
+
+            <Slider Grid.Row="0" Grid.Column="0"
+                    Value="{Binding Red}" />
+
+            <TextBox Grid.Row="0" Grid.Column="1"
+                     Text="{Binding Red}" />
+
+            <Slider Grid.Row="1" Grid.Column="0"
+                    Value="{Binding Green}" />
+
+            <TextBox Grid.Row="1" Grid.Column="1"
+                     Text="{Binding Green}" />
+
+            <Slider Grid.Row="2" Grid.Column="0"
+                    Value="{Binding Blue}" />
+
+            <TextBox Grid.Row="2" Grid.Column="1"
+                     Text="{Binding Blue}" />
+        </Grid>
+
+        <Grid Grid.Row="3"
+              ColumnDefinitions="*, *">
+            <Button Grid.Column="0" 
+                    Content="Randomize"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Margin="20, 10, 10, 20" 
+                    Command="{Binding RandomizeHexCommand}"/>
+        
+            <Button Grid.Column="1"
+                    Content="Copy Hex"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Margin="10, 10, 20, 20" 
+                    Command="{Binding CopyHexCommand}"/>
+        </Grid>        
+    </Grid>
+</Window>
