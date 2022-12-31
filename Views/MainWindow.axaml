@@ -41,9 +41,9 @@
                Content="{Binding Hex}"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               FontSize="20"/>
+               FontSize="20" />
 
-        <Grid Grid.Row="2" 
+        <Grid Grid.Row="2"
               RowDefinitions="*, *, *"
               ColumnDefinitions="*, Auto"
               Margin="20, 0">
@@ -69,21 +69,21 @@
 
         <Grid Grid.Row="3"
               ColumnDefinitions="*, *">
-            <Button Grid.Column="0" 
+            <Button Grid.Column="0"
                     Content="Randomize"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Center"
                     HorizontalContentAlignment="Center"
-                    Margin="20, 10, 10, 20" 
-                    Command="{Binding RandomizeHexCommand}"/>
-        
+                    Margin="20, 10, 10, 20"
+                    Command="{Binding RandomizeHexCommand}" />
+
             <Button Grid.Column="1"
                     Content="Copy Hex"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Center"
                     HorizontalContentAlignment="Center"
-                    Margin="10, 10, 20, 20" 
-                    Command="{Binding CopyHexCommand}"/>
-        </Grid>        
+                    Margin="10, 10, 20, 20"
+                    Command="{Binding CopyHexCommand}" />
+        </Grid>
     </Grid>
 </Window>
