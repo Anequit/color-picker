@@ -3,10 +3,10 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using ColorPicker.ViewModels;
-using ColorPicker.Views;
+using ColorPicker.Avalonia.ViewModels;
+using ColorPicker.Avalonia.Views;
 
-namespace ColorPicker;
+namespace ColorPicker.Avalonia;
 
 public class App : Application
 {

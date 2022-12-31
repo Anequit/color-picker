@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace ColorPicker.Views;
+namespace ColorPicker.Avalonia.Views;
 
 public partial class MainWindow : Window
 {

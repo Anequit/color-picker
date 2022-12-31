@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Threading.Tasks;
 
-namespace ColorPicker.ViewModels;
+namespace ColorPicker.Avalonia.ViewModels;
 
 public partial class MainWindowViewModel : ObservableObject
 {

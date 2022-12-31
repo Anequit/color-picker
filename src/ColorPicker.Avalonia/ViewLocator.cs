@@ -3,7 +3,7 @@ using Avalonia.Controls.Templates;
 using System;
 using System.ComponentModel;
 
-namespace ColorPicker;
+namespace ColorPicker.Avalonia;
 
 public class ViewLocator : IDataTemplate
 {
