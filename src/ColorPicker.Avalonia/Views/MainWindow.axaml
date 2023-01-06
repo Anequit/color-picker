@@ -20,8 +20,6 @@
             <Setter Property="Minimum" Value="0" />
             <Setter Property="Maximum" Value="255" />
             <Setter Property="Margin" Value="0, 0, 10, 0" />
-            <Setter Property="BorderBrush" Value="Orange"/>
-            <Setter Property="BorderThickness" Value="4"/>
         </Style>
 
         <Style Selector="NumericUpDown">
