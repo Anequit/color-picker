@@ -7,9 +7,9 @@ namespace ColorPicker.Avalonia;
 
 public class ViewLocator : IDataTemplate
 {
-    public IControl Build(object data)
+    public IControl Build(object? viewmodel)
     {
-        string name = data.GetType().FullName!.Replace("ViewModel", "View");
+        string name = viewmodel!.GetType().FullName!.Replace("ViewModel", "View");
         Type? type = Type.GetType(name);
 
         if(type != null)
@@ -21,5 +21,5 @@ public class ViewLocator : IDataTemplate
         };
     }
 
-    public bool Match(object data) => data is INotifyPropertyChanged;
+    public bool Match(object? data) => data is INotifyPropertyChanged;
 }
