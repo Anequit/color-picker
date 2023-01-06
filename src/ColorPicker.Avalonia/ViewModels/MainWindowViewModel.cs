@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 namespace ColorPicker.Avalonia.ViewModels;
 
-public partial class MainWindowViewModel : ObservableObject
+public class MainWindowViewModel : ObservableObject
 {
-    [ObservableProperty]
-    private string _hex = string.Empty;
-    
     private int _red;
-    private int _blue;
     private int _green;
-
+    private int _blue;
+    private string _hex = string.Empty;
+    private readonly AsyncRelayCommand _copyHexCommand;
+    private readonly RelayCommand _randomizeHex;
+    
     public MainWindowViewModel()
     {
+        _copyHexCommand = new AsyncRelayCommand(CopyHex);
+        _randomizeHex = new RelayCommand(RandomizeHex);
+
         RandomizeHex();
         UpdateHex();
     }
@@ -51,9 +54,18 @@ public partial class MainWindowViewModel : ObservableObject
         }
     }
 
+    public string Hex
+    {
+        get => _hex;
+        set => SetProperty(ref _hex, value);
+    }
+
+    public IAsyncRelayCommand CopyHexCommand => _copyHexCommand;
+    
+    public IRelayCommand RandomizeHexCommand => _randomizeHex;
+
     private void UpdateHex() => Hex = $"#{_red:X2}{_green:X2}{_blue:X2}";
 
-    [RelayCommand]
     private void RandomizeHex()
     {
         Red = Random.Shared.Next(0, 256);
@@ -61,6 +73,5 @@ public partial class MainWindowViewModel : ObservableObject
         Green = Random.Shared.Next(0, 256);
     }
 
-    [RelayCommand]
     private async Task CopyHex() => await Application.Current?.Clipboard?.SetTextAsync(Hex)!;
 }
