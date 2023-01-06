@@ -24,12 +24,18 @@
             <Setter Property="BorderThickness" Value="4"/>
         </Style>
 
-        <Style Selector="TextBox">
+        <Style Selector="NumericUpDown">
             <Setter Property="Margin" Value="10, 0, 0, 0" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="FontSize" Value="16" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="ShowButtonSpinner" Value="False"/>
+            <Setter Property="Maximum" Value="255"/>
+            <Setter Property="Minimum" Value="0"/>
+            <Setter Property="ClipValueToMinMax" Value="True"/>
+            <Setter Property="ParsingNumberStyle" Value="Integer"/>
+            <Setter Property="MaxWidth" Value="64"/>
         </Style>
     </Window.Styles>
 
@@ -51,20 +57,20 @@
             <Slider Grid.Row="0" Grid.Column="0"
                     Value="{Binding Red}" />
 
-            <TextBox Grid.Row="0" Grid.Column="1"
-                     Text="{Binding Red}" />
+            <NumericUpDown Grid.Row="0" Grid.Column="1"
+                           Value="{Binding Red}" />
 
             <Slider Grid.Row="1" Grid.Column="0"
                     Value="{Binding Green}" />
 
-            <TextBox Grid.Row="1" Grid.Column="1"
-                     Text="{Binding Green}" />
+            <NumericUpDown Grid.Row="1" Grid.Column="1"
+                           Value="{Binding Green}" />
 
             <Slider Grid.Row="2" Grid.Column="0"
                     Value="{Binding Blue}" />
 
-            <TextBox Grid.Row="2" Grid.Column="1"
-                     Text="{Binding Blue}" />
+            <NumericUpDown Grid.Row="2" Grid.Column="1"
+                           Value="{Binding Blue}"/>
         </Grid>
 
         <Grid Grid.Row="3"
